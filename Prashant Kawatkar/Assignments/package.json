@@ -4,14 +4,15 @@
   "description": "This is to complete assignments",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress open",
+    "test": "node_modules\\.bin\\cypress run",
     "headTest": "npm run test -- --headed",
     "chromeTest": "npm run test -- --browser chrome"
   },
   "author": "Prashant Kawatkar",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^12.2.0"
+    "cypress": "^12.2.0",
+    "cypress-iframe": "^1.0.1"
   },
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^15.0.0",
