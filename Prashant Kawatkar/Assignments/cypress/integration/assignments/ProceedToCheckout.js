@@ -5,7 +5,6 @@ it('Test proceed to checkout',function() {
  
 cy.visit(Cypress.env('url')+'/seleniumPractise/#/')
 cy.get('.search-keyword').type('ca')
-cy.wait(2000)
 
 cy.get('.products').as('productLocator')
 cy.get('@productLocator').find('.product').each(($productElement, index, $list) => {    
