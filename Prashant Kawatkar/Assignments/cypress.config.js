@@ -19,4 +19,4 @@ module.exports = defineConfig({
     setupNodeEvents,
     specPattern: 'cypress/integration/assignments/*.js',
   },
-});
+}); 
