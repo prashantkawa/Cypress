@@ -1,5 +1,5 @@
 class HomePage {
-
+  
   getNameEditBox() {
     return cy.get('input[name="name"]:nth-child(2)');
   }
@@ -36,12 +36,17 @@ class HomePage {
     return cy.get(':nth-child(2) > .nav-link');
   }
 
-  clickOnShopTab() {
+  selectShopTab() {
     this.getShopTab().click();
   }
 
   getSubmitButton() {
     return cy.get('.btn');
+  }
+
+  enterFormDetails(dataTable) {
+    enterUserName(dataTable.rawTable[1][0]);
+    enterUserEmail(dataTable.rawTable[1][1]);
   }
 }
 

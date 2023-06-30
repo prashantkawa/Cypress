@@ -4,8 +4,9 @@ Feature: End to end Ecommerce validation
     Scenario: Greencart product delivery
     Given I open ecommerce page
     When I add items to cart
-    And validate the total price
-    Then Select the country submit and verify Success message
+    Then Validate the total price
+    When Select country and submit the order
+    Then Verify Success message
 
     @Smoke
     Scenario: Filling the form to shop
@@ -13,5 +14,5 @@ Feature: End to end Ecommerce validation
     When I fill the form details
     |name|email|
     |John|john@test.com|
-    Then validate the forms behaviuor
-    And select the shop page
+    Then Validate the forms behaviuor
+    And Select the shop page

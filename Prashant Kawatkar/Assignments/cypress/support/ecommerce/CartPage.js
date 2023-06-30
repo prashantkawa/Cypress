@@ -1,5 +1,5 @@
 class CartPage {
-
+  
   getCheckoutButton() {
     return cy.contains('Checkout');
   }
@@ -69,6 +69,15 @@ class CartPage {
 
   getTotalAmount() {
     return cy.get('h3 strong');
+  }
+
+  purchaseProduct() {
+    clickOnCheckoutButton();
+
+    enterCountryDetails('India');
+    clickOnCountry();
+    clickOnAgreementCheckbox();
+    clickOnPurchaseButton();
   }
 
   validateTotalAmount() {

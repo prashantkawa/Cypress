@@ -13,43 +13,29 @@ Given('I open ecommerce page', () => {
 });
 
 When('I add items to cart', () => {
-  homePage.clickOnShopTab();
-
-  const productName = JSON.parse(this.userData.products);
-
-  function selectProductByName(productName) {
-    for (var index in productName) {
-      productPage.selectProductByName(productName[index]);
-    }
-  }
-
-  productPage.clickOnCheckoutButton();
+  productPage.addItemToCart();
 });
 
-When('validate the total price', () => {
+Then('Validate the total price', () => {
   cartPage.validateTotalAmount();
 });
 
-Then('Select the country submit and verify Success message', () => {
-  cartPage.clickOnCheckoutButton();
+When('Select country and submit the order', () => {
+  cartPage.purchaseProduct();
+});
 
-  cartPage.enterCountryDetails('India');
-  cartPage.clickOnCountry();
-  cartPage.clickOnAgreementCheckbox();
-  cartPage.clickOnPurchaseButton();
-
+Then('Verify Success message', () => {
   cartPage.validateSuccessText();
 });
 
 When('I fill the form details', (dataTable) => {
-  homePage.enterUserName(dataTable.rawTable[1][0]);
-  homePage.enterUserEmail(dataTable.rawTable[1][1]);
+  homePage.enterFormDetails(dataTable);
 });
 
-Then('validate the forms behaviuor', function () {
+Then('Validate the forms behaviuor', function () {
   homePage.validateRadioBtnVisibility();
 });
 
-Then('select the shop page', () => {
-  homePage.clickOnShopTab();
+Then('Select the shop page', () => {
+  homePage.selectShopTab();
 });
